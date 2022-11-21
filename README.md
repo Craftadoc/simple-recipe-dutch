@@ -1,4 +1,4 @@
-# Invoice With Footer Template
+# Simple Recipe Dutch
 
 A [Craftadoc](https://craftadoc.com) template. (Using LaTeX.)
 
