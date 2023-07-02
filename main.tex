@@ -46,11 +46,10 @@
 % use like p{size} but via x{size}
 \newcolumntype{x}[1]{%
 >{\raggedleft\hspace{0pt}}p{#1}}%
-
 \usepackage{xcolor}
 % light color
 \definecolor{darkcol}{HTML}
-{A4330D} %<{"type": "color", "description": "Kies je eigen kleur (Optioneel)", "initialColor": "A4330D"}>
+{A4330D}%<{type: "reference", id: "color"}>
 
 \usepackage{fancyhdr}
 
@@ -81,25 +80,27 @@
 \begin{paracol}{2}
 \begin{leftcolumn}
 
+%<{type: "group", description: "Receptinformatie"}
 \begin{center}
-\includegraphics[width=\linewidth]{frietstoofvlees.jpg}%<{"description": "Foto van de maaltijd", "type": "crop", "aspect": 2}>
+\includegraphics[width=\linewidth]{frietstoofvlees.jpg}%<{description: "Foto", type: "crop", aspect: 2}>
 \end{center}
-\recipesection{Friet stoofvlees} %<{"description": "Titel van je recept", "type": "text"}>
+\recipesection{Friet stoofvlees} %<{description: "Titel recept", type: "text"}>
 \vspace{0pt}
 \\
 \textcolor{darkcol}{\normalsize\faClockO\recipetext
-{3u} %<{"description": "Hoelang duurt het om te maken?", "type": "text"}>
+{3u} %<{description: "Bereidingstijd", type: "text"}>
 }
 \textcolor{darkcol}{\normalsize\faUser\recipetext
-{4 personen} %<{"description": "Hoeveel porties?", "type": "text"}>
+{4 personen} %<{description: "Aantal porties", type: "text"}>
 }
-\textcolor{darkcol}{\normalsize\faNewspaperO\recipetext
-{Dagelijksekost} %<{"description": "Wie heeft het recept bedacht of van waar ken je het?", "type": "text"}>
+\textcolor{darkcol}{
+\normalsize\faNewspaperO\recipetext{Dagelijksekost} %<{description: "Bron van het recept (optioneel)", type: "text", deleteOnEmpty: true}>
 }
+%>
 \vspace{5pt}
 \begin{enumerate}[wide, labelwidth=!, labelindent=0pt]
-    %<{"description": "Lijst van stappen", "type": "list"}
-        \preparationitem{Pel de uien en snipper ze in niet al te fijne stukjes.} %<{"description": "Stap (Eén van de stappen om de maaltijd voor te bereiden)", "type": "textblock", "injectBrackets": true}>
+    %<{description: "Bereiding", type: "list", deleteOnEmpty: true}
+        \preparationitem{Pel de uien en snipper ze in niet al te fijne stukjes.} %<{description: "Step", type: "textblock", injectBrackets: true}>
         
         \preparationitem{Verhit een ruime stoofpot en smelt er een klontje boter in. Stoof daarin de uien op een matig vuur. Laat de uien niet bruin bakken.}
         \preparationitem{Verhit een braadpan op een matig vuur en smelt er een klontje boter in.}
@@ -122,8 +123,8 @@
 \begin{rightcolumn}
 
 \sidebarsection{Ingrediënten} \\ \\
-%<{"description": "Lijst van ingrediënten", "type": "list"}
-\ingredientitem{2 grote uien}\\ %<{"description": "Ingrediënt", "type": "text"}>
+%<{description: "Lijst van ingrediënten", type: "list", deleteOnEmpty: true}
+\ingredientitem{2 grote uien}\\ %<{description: "Ingrediënt", type: "text"}>
 \ingredientitem{klontjes boter}\\
 \ingredientitem{1kg rundsvlees}\\
 \ingredientitem{peper en zout}\\
@@ -137,6 +138,13 @@
 \ingredientitem{1kg (loskokende) aardappelen}\\
 \ingredientitem{mayonaise}\\
 %>
+
+\newcommand{\hide}[1]
+{}
+
+\hide{
+    %<{type: "color", description: "Kies je eigen kleur (optioneel)", initialColor: "A4330D", id: "color"}>
+}
 
 \end{rightcolumn}
 \clearpage
